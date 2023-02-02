@@ -1,7 +1,19 @@
+// hazz Jan 2023 - Added extra fakebrush to mapscript to block players from getting South docs in case they sneak through before main gate is blown
+
 game_manager
 {
 	spawn
 	{
+		create
+		{
+			scriptname "newdoorclip"
+			targetname "newdoorclip"
+			classname "func_fakebrush"
+			origin "-1330 -1176 -40"
+			mins "-80 -24 0"
+			maxs "80 0 150" 
+			contents 1
+		}
 		create
         {
 	        scriptName "back_spawn_roof_patch"
@@ -259,6 +271,8 @@ game_manager
 		{
 			origin "976 -1684 330"	
 		}
+		
+		setstate newdoorclip default
 
 	}
 
@@ -374,7 +388,10 @@ bigdoor
 		trigger spawnflag check_obj
 		trigger spawnflag kill
 ////////////////////////////////////////////////////
+		// keep this invisible until bigdoor is blown, because it uses the same model
 		trigger newobjdoor visible
+		// invisible door can now be removed
+		setstate newdoorclip invisible
 ///////////////////////////////////////////////////
 
 		wm_announce "Allies have destroyed the Old City Door!"
