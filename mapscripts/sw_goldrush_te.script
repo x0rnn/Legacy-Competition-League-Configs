@@ -124,6 +124,16 @@ game_manager
 			angle "270"
 			id "1" // setspawnpt 3 1
 		}
+		create
+		{
+			classname "team_CTF_bluespawn"
+			targetname "cp_allied_spawns"
+			scriptname "cp_allied_spawns"
+			origin "576 748 140" // CP alt
+			spawnflags "1"
+			angle "90"
+			id "2" // setspawnpt 3 2
+		}
 
 		remapshader "models/mapobjects/tanks_sd/mg42turret" "models/mapobjects/tanks_sd/mg42turret_2"
 		
